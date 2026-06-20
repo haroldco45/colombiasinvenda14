@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colombia Sin Venda — Día 14: La Deuda que Nos Dejaron</title>
+<meta name="description" content="La deuda pública de Colombia subió de $800 a $1.238 billones. $222 millones más cada minuto. Esto nos cuesta a todos.">
+<meta property="og:title" content="Colombia Sin Venda — Día 14: La Deuda que Nos Dejaron">
+<meta property="og:description" content="En 4 años, la deuda creció 54%. Tasas del 14,79%. $1 de cada $3 del recaudo se va en intereses.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="manifest" href="manifest-dia14.json">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;600;800&display=swap');
+
+  :root {
+    --negro: #0a0a0a;
+    --rojo: #e8000d;
+    --rojo-oscuro: #9b0009;
+    --amarillo: #f5c400;
+    --blanco: #ffffff;
+    --gris-claro: #f0f0f0;
+    --gris-medio: #cccccc;
+    --verde-alerta: #00c853;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--negro);
+    color: var(--blanco);
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ─────────────────────────────── */
+  .header {
+    background: var(--rojo);
+    padding: 16px 20px 12px;
+    text-align: center;
+  }
+  .header-serie {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 4px;
+  }
+  .header-dia {
+    font-family: 'Oswald', sans-serif;
+    font-size: 42px;
+    color: var(--blanco);
+    line-height: 1;
+  }
+
+  /* ── RELOJ ────────────────────────────── */
+  .reloj-bar {
+    background: #1a1a1a;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--gris-medio);
+    border-bottom: 2px solid var(--rojo);
+  }
+  #reloj { color: var(--amarillo); font-weight: 700; }
+
+  /* ── HERO ────────────────────────────── */
+  .hero {
+    background: var(--negro);
+    padding: 40px 20px 32px;
+    text-align: center;
+    border-bottom: 4px solid var(--rojo);
+  }
+  .hero-titulo {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(34px, 8vw, 56px);
+    color: var(--blanco);
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+  .hero-titulo span {
+    color: var(--rojo);
+  }
+  .hero-subtitulo {
+    font-size: clamp(16px, 4vw, 20px);
+    color: var(--gris-claro);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* ── CONTADOR ANIMADO ──────────────────── */
+  .contador-section {
+    background: #111;
+    padding: 36px 20px;
+    text-align: center;
+    border-bottom: 3px solid #222;
+  }
+  .contador-label {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gris-medio);
+    margin-bottom: 8px;
+  }
+  .contador-numero {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(44px, 12vw, 80px);
+    color: var(--rojo);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .contador-unidad {
+    font-size: 16px;
+    color: var(--gris-medio);
+  }
+
+  /* ── TICKER EN VIVO ──────────────────── */
+  .ticker-box {
+    background: var(--rojo);
+    padding: 18px 20px;
+    text-align: center;
+    margin: 0;
+  }
+  .ticker-label {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 6px;
+  }
+  .ticker-valor {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(28px, 7vw, 48px);
+    color: var(--blanco);
+    letter-spacing: 1px;
+  }
+  .ticker-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    margin-top: 4px;
+  }
+
+  /* ── TARJETAS DATO ───────────────────── */
+  .datos-section {
+    padding: 32px 16px;
+    background: #0d0d0d;
+  }
+  .datos-titulo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--amarillo);
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .datos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .dato-card {
+    background: #1a1a1a;
+    border: 2px solid #2a2a2a;
+    border-top: 4px solid var(--rojo);
+    border-radius: 10px;
+    padding: 20px 14px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  .dato-card:hover { transform: scale(1.03); }
+  .dato-card.verde { border-top-color: var(--verde-alerta); }
+  .dato-card.amarillo { border-top-color: var(--amarillo); }
+  .dato-numero {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(26px, 6vw, 38px);
+    color: var(--blanco);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .dato-numero .unidad {
+    font-size: 14px;
+    color: var(--gris-medio);
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+  .dato-desc {
+    font-size: 13px;
+    color: var(--gris-medio);
+    line-height: 1.4;
+  }
+
+  /* ── LINEA DE TIEMPO ──────────────────── */
+  .timeline-section {
+    padding: 36px 20px;
+    background: #111;
+    border-top: 3px solid #222;
+  }
+  .section-titulo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--amarillo);
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .timeline {
+    position: relative;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 0; bottom: 0;
+    width: 3px;
+    background: var(--rojo);
+  }
+  .tl-item {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 28px;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  .tl-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .tl-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--rojo);
+    border: 3px solid var(--negro);
+    flex-shrink: 0;
+    margin-top: 4px;
+    position: relative;
+    z-index: 1;
+    margin-left: 16px;
+  }
+  .tl-contenido {
+    background: #1e1e1e;
+    border-radius: 10px;
+    padding: 16px 18px;
+    flex: 1;
+    border-left: 4px solid var(--rojo);
+  }
+  .tl-fecha {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--rojo);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .tl-titulo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    color: var(--blanco);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .tl-texto {
+    font-size: 15px;
+    color: #c8c8c8;
+    line-height: 1.5;
+  }
+
+  /* ── FRASE IMPACTO ───────────────────── */
+  .frase-section {
+    background: var(--rojo);
+    padding: 40px 24px;
+    text-align: center;
+  }
+  .frase-comilla {
+    font-family: 'Oswald', sans-serif;
+    font-size: 80px;
+    color: rgba(255,255,255,0.25);
+    line-height: 0.5;
+    margin-bottom: 16px;
+  }
+  .frase-texto {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(22px, 5vw, 32px);
+    color: var(--blanco);
+    line-height: 1.2;
+    max-width: 480px;
+    margin: 0 auto 16px;
+  }
+  .frase-autor {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── LO QUE PAGAMOS ──────────────────── */
+  .impacto-section {
+    padding: 36px 20px;
+    background: #0d0d0d;
+  }
+  .impacto-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 20px 18px;
+    margin-bottom: 14px;
+    border-left: 5px solid var(--rojo);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  .impacto-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .impacto-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+  }
+  .impacto-texto h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    color: var(--blanco);
+    margin-bottom: 4px;
+  }
+  .impacto-texto p {
+    font-size: 15px;
+    color: #c0c0c0;
+    line-height: 1.4;
+  }
+
+  /* ── BARRA COMPARATIVA ──────────────── */
+  .barra-section {
+    padding: 36px 20px;
+    background: #111;
+    border-top: 3px solid #222;
+  }
+  .barra-item {
+    margin-bottom: 24px;
+  }
+  .barra-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .barra-nombre {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--gris-claro);
+  }
+  .barra-valor {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    color: var(--blanco);
+  }
+  .barra-track {
+    background: #2a2a2a;
+    border-radius: 6px;
+    height: 20px;
+    overflow: hidden;
+  }
+  .barra-fill {
+    height: 100%;
+    border-radius: 6px;
+    width: 0%;
+    transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+  }
+  .barra-fill.rojo { background: var(--rojo); }
+  .barra-fill.amarillo { background: var(--amarillo); }
+
+  /* ── PROGRESO ────────────────────────── */
+  .progress-section {
+    padding: 28px 20px;
+    background: #111;
+    text-align: center;
+    border-top: 3px solid #222;
+  }
+  .progress-label {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gris-medio);
+    margin-bottom: 14px;
+  }
+  .dots {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+  .dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #2a2a2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #555;
+    transition: all 0.3s;
+  }
+  .dot.hecho { background: var(--rojo); color: var(--blanco); }
+  .dot.hoy { background: var(--amarillo); color: var(--negro); transform: scale(1.25); }
+
+  /* ── COMPARTIR ───────────────────────── */
+  .compartir-section {
+    padding: 36px 20px 24px;
+    background: #0a0a0a;
+    text-align: center;
+    border-top: 3px solid var(--rojo);
+  }
+  .compartir-titulo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--blanco);
+    margin-bottom: 8px;
+  }
+  .compartir-texto {
+    font-size: 15px;
+    color: var(--gris-medio);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 16px 32px;
+    border-radius: 50px;
+    margin-bottom: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+  }
+  .btn-whatsapp:hover { transform: scale(1.05); }
+
+  /* ── FUENTES ────────────────────────── */
+  .fuentes-section {
+    padding: 24px 20px;
+    background: #111;
+    border-top: 2px solid #1e1e1e;
+  }
+  .fuentes-titulo {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  .fuente {
+    font-size: 13px;
+    color: #444;
+    margin-bottom: 4px;
+  }
+
+  /* ── FOOTER ─────────────────────────── */
+  .footer {
+    background: var(--negro);
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #1e1e1e;
+  }
+  .footer p {
+    font-size: 12px;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  /* ── BANNER PWA ──────────────────────── */
+  #pwa-banner {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: #1a1a1a;
+    border-top: 3px solid var(--rojo);
+    padding: 16px 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    z-index: 999;
+  }
+  #pwa-banner.show { display: flex; }
+  #pwa-banner p { font-size: 14px; color: var(--gris-claro); line-height: 1.3; }
+  #pwa-banner button {
+    background: var(--rojo);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-serie">🇨🇴 Colombia Sin Venda · 20 días de verdad</div>
+  <div class="header-dia">DÍA 14</div>
+</header>
+
+<!-- RELOJ -->
+<div class="reloj-bar">
+  🕐 Colombia · <span id="reloj">--:--:--</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <h1 class="hero-titulo">
+    La Deuda<br>que Nos<br><span>Dejaron</span>
+  </h1>
+  <p class="hero-subtitulo">
+    En 4 años, la deuda pública de Colombia creció un 54%. Esto lo pagamos tú, yo y los hijos que aún no han nacido.
+  </p>
+</section>
+
+<!-- CONTADOR PRINCIPAL -->
+<div class="contador-section">
+  <div class="contador-label">📊 Deuda total del Gobierno Nacional · Feb 2026</div>
+  <div class="contador-numero" id="contador-deuda">$0</div>
+  <div class="contador-unidad">billones de pesos colombianos</div>
+</div>
+
+<!-- TICKER EN VIVO -->
+<div class="ticker-box">
+  <div class="ticker-label">⚡ Creció en promedio</div>
+  <div class="ticker-valor">$222 millones / minuto</div>
+  <div class="ticker-desc">Así de rápido creció la deuda durante este gobierno</div>
+</div>
+
+<!-- TARJETAS DATO -->
+<section class="datos-section">
+  <div class="datos-titulo">⚠️ Los números que duelen</div>
+  <div class="datos-grid">
+
+    <div class="dato-card">
+      <div class="dato-numero">54%
+        <span class="unidad">de aumento</span>
+      </div>
+      <div class="dato-desc">La deuda subió de $804 a $1.238 billones en 4 años</div>
+    </div>
+
+    <div class="dato-card amarillo">
+      <div class="dato-numero" style="color:var(--amarillo)">14.79%
+        <span class="unidad">tasa de interés</span>
+      </div>
+      <div class="dato-desc">La más alta pagada en TES de largo plazo desde 2022</div>
+    </div>
+
+    <div class="dato-card">
+      <div class="dato-numero">$130
+        <span class="unidad">billones en 2026</span>
+      </div>
+      <div class="dato-desc">Lo que el Estado paga solo en servicio de la deuda este año</div>
+    </div>
+
+    <div class="dato-card verde">
+      <div class="dato-numero" style="color:var(--verde-alerta)">368%
+        <span class="unidad">de aumento</span>
+      </div>
+      <div class="dato-desc">Así creció la deuda de corto plazo en 2025 vs 2024</div>
+    </div>
+
+    <div class="dato-card" style="grid-column: 1/-1;">
+      <div class="dato-numero" style="font-size:clamp(22px,5vw,34px)">$319.000 millones
+        <span class="unidad">cada día</span>
+      </div>
+      <div class="dato-desc">Lo que creció en promedio la deuda bruta durante este gobierno, según cifras del propio MinHacienda</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LINEA DE TIEMPO -->
+<section class="timeline-section">
+  <div class="section-titulo">📅 Cómo pasó</div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-contenido">
+        <div class="tl-fecha">Agosto 2022 · Inicio de gobierno</div>
+        <div class="tl-titulo">Deuda total: $804,9 billones</div>
+        <div class="tl-texto">Colombia recibía las llaves con una deuda manejable. La tasa real de financiación era del 3%.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-contenido">
+        <div class="tl-fecha">2025 · La bomba de tiempo</div>
+        <div class="tl-titulo">$92,7 billones en deuda de corto plazo</div>
+        <div class="tl-texto">Un aumento del 368% frente al año anterior. Deuda que vence en menos de 12 meses y que hay que devolver con intereses.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-contenido">
+        <div class="tl-fecha">Mayo 13, 2026 · "Mega subasta"</div>
+        <div class="tl-titulo">Colombia se endeuda al 14,79%</div>
+        <div class="tl-texto">El Ministerio de Hacienda salió a buscar $3 billones. Recibió demanda de $12 billones. Colocó $6 billones a la tasa más cara en años.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-contenido">
+        <div class="tl-fecha">Feb 2026 · Hoy</div>
+        <div class="tl-titulo">Deuda total: $1.238,2 billones</div>
+        <div class="tl-texto">El 65% del PIB. La tasa real pasó del 3% al 8,6%. Colombia enfrenta vencimientos críticos en 2026, 2029 y 2030.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FRASE IMPACTO -->
+<section class="frase-section">
+  <div class="frase-comilla">"</div>
+  <div class="frase-texto">
+    Pendejo el que compre casa hoy con tasas altas.
+  </div>
+  <div class="frase-autor">— Gustavo Petro, presidente de Colombia</div>
+  <br>
+  <div style="font-size:15px; color:rgba(255,255,255,0.85); line-height:1.5; max-width:420px; margin:0 auto;">
+    Ese mismo gobierno se endeudó al <strong>13,69% — 14,79%</strong>.<br>
+    El mayor costo de deuda pública en la historia reciente del país.
+  </div>
+</section>
+
+<!-- LO QUE NOS CUESTA -->
+<section class="impacto-section">
+  <div class="section-titulo">💸 Lo que nos cuesta a todos</div>
+
+  <div class="impacto-item">
+    <div class="impacto-icon">🏦</div>
+    <div class="impacto-texto">
+      <h3>$1 de cada $3 del recaudo va a deuda</h3>
+      <p>De todo lo que recauda el Estado en impuestos, más de $100 billones se van solo en intereses. No en hospitales. No en vías. En intereses.</p>
+    </div>
+  </div>
+
+  <div class="impacto-item">
+    <div class="impacto-icon">📈</div>
+    <div class="impacto-texto">
+      <h3>Tasas reales más altas en 5 años</h3>
+      <p>El gobierno recibió el país financiándose al 3% real. Hoy paga 8,6% real. Los colombianos, empresas y familias también pagan más caro su crédito.</p>
+    </div>
+  </div>
+
+  <div class="impacto-item">
+    <div class="impacto-icon">🗓️</div>
+    <div class="impacto-texto">
+      <h3>Vencimientos hasta 2033 en niveles récord</h3>
+      <p>La Contraloría advirtió picos críticos en 2026, 2029 y 2030. El próximo gobierno heredará una factura histórica que limita la inversión social.</p>
+    </div>
+  </div>
+
+  <div class="impacto-item">
+    <div class="impacto-icon">🌎</div>
+    <div class="impacto-texto">
+      <h3>Deuda externa: 55% del PIB</h3>
+      <p>La deuda externa total de Colombia pasó del 52,9% al 55,0% del PIB en febrero de 2026. Equivale a 252.168 millones de dólares.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BARRAS COMPARATIVAS -->
+<section class="barra-section">
+  <div class="section-titulo">📊 Deuda interna vs externa</div>
+
+  <div class="barra-item">
+    <div class="barra-label">
+      <span class="barra-nombre">Deuda interna (feb 2026)</span>
+      <span class="barra-valor">$865 bill.</span>
+    </div>
+    <div class="barra-track">
+      <div class="barra-fill rojo" data-pct="70"></div>
+    </div>
+  </div>
+
+  <div class="barra-item">
+    <div class="barra-label">
+      <span class="barra-nombre">Deuda externa (feb 2026)</span>
+      <span class="barra-valor">$373 bill.</span>
+    </div>
+    <div class="barra-track">
+      <div class="barra-fill amarillo" data-pct="30"></div>
+    </div>
+  </div>
+
+  <div class="barra-item">
+    <div class="barra-label">
+      <span class="barra-nombre">Tasa inicio de gobierno (2022)</span>
+      <span class="barra-valor">3% real</span>
+    </div>
+    <div class="barra-track">
+      <div class="barra-fill" style="background:#555" data-pct="21"></div>
+    </div>
+  </div>
+
+  <div class="barra-item">
+    <div class="barra-label">
+      <span class="barra-nombre">Tasa actual (2026)</span>
+      <span class="barra-valor">8,6% real</span>
+    </div>
+    <div class="barra-track">
+      <div class="barra-fill rojo" data-pct="61"></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- PROGRESO 20 DÍAS -->
+<section class="progress-section">
+  <div class="progress-label">Tu recorrido — 20 días de verdad</div>
+  <div class="dots" id="dots"></div>
+</section>
+
+<!-- COMPARTIR -->
+<section class="compartir-section">
+  <div class="compartir-titulo">Comparte esta verdad</div>
+  <p class="compartir-texto">
+    La deuda no es un número abstracto.<br>
+    Es el dinero que no hay para tu salud, tu carretera, tu escuela.
+  </p>
+  <a class="btn-whatsapp" id="btn-wsp" href="#">
+    <span>📲</span> Compartir por WhatsApp
+  </a>
+</section>
+
+<!-- FUENTES -->
+<section class="fuentes-section">
+  <div class="fuentes-titulo">📋 Fuentes verificadas</div>
+  <div class="fuente">• MinHacienda — Perfil de deuda interna 2026</div>
+  <div class="fuente">• El Colombiano, mayo 2026 — Tasas TES récord</div>
+  <div class="fuente">• Portafolio, abril 2026 — $319.000 millones/día</div>
+  <div class="fuente">• Infobae Colombia, abril 2026 — Deuda externa 55% PIB</div>
+  <div class="fuente">• La República — Deuda $1.206 billones (65% PIB)</div>
+  <div class="fuente">• Contraloría General de la República</div>
+  <div class="fuente">• Banco de la República — Estadísticas externas</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>Desarrollada por <strong>Vibras Positivas HM</strong> — Derechos de Autor Reservados<br>
+  Caucasia, Antioquia · Colombia · 2026</p>
+</footer>
+
+<!-- BANNER PWA -->
+<div id="pwa-banner">
+  <p>📲 Instala esta app<br>y léela sin internet</p>
+  <button id="pwa-install">Instalar</button>
+</div>
+
+<script>
+// ── Reloj Colombia ────────────────────
+function actualizarReloj() {
+  const ahora = new Date().toLocaleTimeString('es-CO', {
+    timeZone: 'America/Bogota',
+    hour: '2-digit', minute: '2-digit', second: '2-digit'
+  });
+  document.getElementById('reloj').textContent = ahora;
+}
+actualizarReloj();
+setInterval(actualizarReloj, 1000);
+
+// ── Contador animado ──────────────────
+function animarContador(el, desde, hasta, duracion, prefijo, sufijo) {
+  const inicio = performance.now();
+  function paso(ahora) {
+    const progreso = Math.min((ahora - inicio) / duracion, 1);
+    const ease = 1 - Math.pow(1 - progreso, 3);
+    const valor = Math.floor(desde + (hasta - desde) * ease);
+    el.textContent = prefijo + valor.toLocaleString('es-CO') + sufijo;
+    if (progreso < 1) requestAnimationFrame(paso);
+  }
+  requestAnimationFrame(paso);
+}
+
+const elContador = document.getElementById('contador-deuda');
+const obsContador = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    animarContador(elContador, 800, 1238, 2000, '$', ' bill.');
+    obsContador.disconnect();
+  }
+}, { threshold: 0.5 });
+obsContador.observe(elContador);
+
+// ── Scroll reveal ────────────────────
+const observador = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.tl-item, .impacto-item').forEach(el => observador.observe(el));
+
+// ── Barras animadas ───────────────────
+const obsBarras = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.barra-fill').forEach(b => {
+        b.style.width = b.dataset.pct + '%';
+      });
+      obsBarras.disconnect();
+    }
+  });
+}, { threshold: 0.3 });
+const bSection = document.querySelector('.barra-section');
+if (bSection) obsBarras.observe(bSection);
+
+// ── Dots progreso ──────────────────────
+const dotsEl = document.getElementById('dots');
+for (let i = 1; i <= 20; i++) {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i < 14 ? ' hecho' : i === 14 ? ' hoy' : '');
+  d.textContent = i;
+  dotsEl.appendChild(d);
+}
+
+// ── WhatsApp ──────────────────────────
+const msg = encodeURIComponent(
+  '🇨🇴 *Colombia Sin Venda — Día 14: La Deuda que Nos Dejaron*\n\n' +
+  '💣 La deuda pública pasó de $804 a $1.238 billones.\n' +
+  '📈 Tasa del 14,79% — la más cara en años.\n' +
+  '💸 $1 de cada $3 del recaudo va en intereses.\n' +
+  '⏱ $222 millones más por minuto.\n\n' +
+  'Petro dijo "pendejo el que se endeude con tasas altas".\n' +
+  'Su gobierno lo hizo al 13,69%-14,79%.\n\n' +
+  '🔗 Comparte: https://haroldco45.github.io/colombia-sin-venda/dia14/'
+);
+document.getElementById('btn-wsp').href = 'https://wa.me/?text=' + msg;
+
+// ── PWA Banner ────────────────────────
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById('pwa-banner').classList.add('show');
+});
+document.getElementById('pwa-install').addEventListener('click', () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => {
+      document.getElementById('pwa-banner').classList.remove('show');
+      deferredPrompt = null;
+    });
+  }
+});
+</script>
+
+<!-- Service Worker -->
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw-dia14.js').catch(() => {});
+}
+</script>
+
+</body>
+</html>
